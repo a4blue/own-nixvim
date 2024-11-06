@@ -52,6 +52,11 @@
         };
 
         formatter = pkgs.alejandra;
+        devShells = {
+          default = pkgs.mkShell {
+            packages = [nvim];
+          };
+        };
       };
     };
 }
