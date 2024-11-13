@@ -1,7 +1,8 @@
 {
   config = {
-    opts = {
-      clipboard = "unnamedplus";
+    clipboard = {
+      providers.wl-copy.enable = true;
+      register = "unnamedplus";
     };
   };
 }
