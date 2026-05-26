@@ -31,11 +31,12 @@
         nixvim' = nixvim.legacyPackages.${system};
         # Base NeoVim with Nix,Bash and JSON
         nixvimModule = {
-          inherit pkgs;
-          module = {pkgs, ...}: {
-            imports = [./config];
-            extraPackages = with pkgs; [sops nvd];
-          };
+          inherit system;
+          module = import ./config;
+          #module = {pkgs, ...}: {
+          #imports = [./config];
+          #extraPackages = with pkgs; [sops nvd];
+          #};
           extraSpecialArgs = {};
         };
         nvim = nixvim'.makeNixvimWithModule nixvimModule;
